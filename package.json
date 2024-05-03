@@ -1,6 +1,7 @@
 {
   "name": "weather-app",
   "version": "0.1.0",
+  "homepage": "https://seanchung2000.github.io/Novig-Weather/"
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.4",

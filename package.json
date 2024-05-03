@@ -1,7 +1,6 @@
 {
   "name": "weather-app",
   "version": "0.1.0",
-  "homepage": "https://seanchung2000.github.io/Novig-Weather/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.4",
@@ -13,7 +12,7 @@
     "chart.js": "^4.4.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-scripts": "^3.0.1",
+    "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

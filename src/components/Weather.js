@@ -3,7 +3,7 @@ import WeatherInfo from './WeatherInfo';
 import '../styles/Styles.css';
 import api from '../services/api';
 import WeatherChart from './WeatherChart';
-import { FormControl, InputLabel, MenuItem, Select, TextField, Button } from '@mui/material';
+import { FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material';
 
 import locationMarkerImage from '../assets/location-marker.png';
 import clockImage from '../assets/clock.png';

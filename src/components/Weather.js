@@ -82,6 +82,9 @@ function Weather() {
                 setCurrentWindSpeed(currentWind);
                 setUpcomingWindSpeed(upcomingWind);
             })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
     };
 
     // Handler for when user changes time period of day to account for new weather information

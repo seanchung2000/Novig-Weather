@@ -1,10 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
 
-function TemperatureChart({ id, temperatures, timeOfDay }) {
+// Child component for building weather chart within timeOfDay period and sending it up to parent component (Weather)
+function WeatherChart({ id, temperatures, timeOfDay, precipProbs, windSpeed }) {
     const chartRef = useRef(null);
     const chartInstanceRef = useRef(null);
 
+    // Creates divisions for time of day - morning, afternoon, and evening
     const filterHoursByTimeOfDay = (timeOfDay) => {
         switch (timeOfDay) {
             case 'morning':
@@ -18,6 +20,8 @@ function TemperatureChart({ id, temperatures, timeOfDay }) {
         }
     };
 
+    // Handles data manipulation; creates chart using hourly temperature, precipitation probabilities, and wind speeds; and 
+    // destroys charts when necessary to re-render new charts
     useEffect(() => {
         if (temperatures && chartRef.current) {
             if (chartInstanceRef.current) {
@@ -26,6 +30,8 @@ function TemperatureChart({ id, temperatures, timeOfDay }) {
 
             const filteredHours = filterHoursByTimeOfDay(timeOfDay);
             const filteredTemperatures = filteredHours.map((hour) => temperatures[hour]);
+            const filteredPrecipProbs = filteredHours.map((hour) => precipProbs[hour]);
+            const filteredWindSpeeds = filteredHours.map((hour) => windSpeed[hour]);
 
             const ctx = chartRef.current.getContext('2d');
             chartInstanceRef.current = new Chart(ctx, {
@@ -39,19 +45,32 @@ function TemperatureChart({ id, temperatures, timeOfDay }) {
                             borderColor: 'rgb(75, 192, 192)',
                             tension: 0.1,
                         },
+                        {
+                            label: 'Precipitation Probability',
+                            data: filteredPrecipProbs,
+                            borderColor: 'rgb(255, 99, 132)',
+                            tension: 0.1,
+                        },
+                        {
+                            label: 'Wind Speed (mph)',
+                            data: filteredWindSpeeds,
+                            borderColor: 'rgb(54, 162, 235)',
+                            tension: 0.1,
+                        },
                     ],
                 },
                 options: {
                     scales: {
                         y: {
-                            beginAtZero: false,
+                            suggestedMin: 0,
+                            suggestedMax: 100,
                         },
                         x: {
                             title: {
                                 display: true,
-                                text: `${timeOfDay}`
-                            }
-                        }
+                                text: `${timeOfDay}`,
+                            },
+                        },
                     },
                 },
             });
@@ -62,10 +81,9 @@ function TemperatureChart({ id, temperatures, timeOfDay }) {
                 chartInstanceRef.current.destroy();
             }
         };
-    }, [id, temperatures, timeOfDay]);
+    }, [id, temperatures, timeOfDay, precipProbs, windSpeed]);
 
-    return <canvas id={id} ref={chartRef} width="200" height="200"></canvas>;
+    return <canvas id={id} ref={chartRef} width="400" height="400"></canvas>;
 }
 
-
-export default TemperatureChart;
+export default WeatherChart;

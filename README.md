@@ -1,1 +1,1 @@
-# Novig Weather App Takehome
+# Novig Weather App Takehome Exercise

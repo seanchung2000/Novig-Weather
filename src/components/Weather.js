@@ -183,7 +183,7 @@ function Weather() {
                 <hr></hr>
                 <div className="bottom-flex">
                     <input type="image" src={leftButton} onClick={() => handleWeatherChange(-7)} className="nav-button" />
-                    <div className="weather">
+                    <div className="weather-info">
                         <div className="current-weather">
                             {currentWeather && currentWeather.date < new Date(new Date().setDate(new Date().getDate() + 7)).toISOString().slice(0, 10) && (
                                 <h2 className="current-weather-header"> This {selectedDay} the {parseInt(currentWeather.date.slice(8, 10), 10)}{getOrdinalSuffix(parseInt(currentWeather.date.slice(8, 10), 10))}</h2>

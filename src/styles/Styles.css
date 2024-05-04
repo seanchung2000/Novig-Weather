@@ -57,7 +57,7 @@
     margin-right: 10px;
 }
 
-.weather {
+.weather-info {
     display: flex;
 }
 
@@ -112,17 +112,13 @@
 
 
 @media screen and (max-width: 1080px) {
-    .weather {
-        flex-direction: column;
-    }
-
     .top-flex {
         display: flex;
         flex-direction: column;
     }
 
-    .bottom-flex {
-        border: 1px solid black;
+    .weather-info {
+        flex-direction: column;
     }
 
     .nav-button {

@@ -11,24 +11,15 @@
     height: fit-content;
     max-width: 100%;
     max-height: 90%;
-    /* border: 1px black solid;  */
 }
 
-.flex, .flex1  {
+.bottom-flex, .top-flex  {
     display: flex;
     margin: 30px 20px 30px 20px;
 }
 
 .weather {
     display: flex;
-}
-
-.search,
-.selectors {
-    flex: 1;
-    margin-right: 40px;
-    margin-left: 20px;
-    /* border: 1px black solid; */
 }
 
 .selectors {
@@ -38,6 +29,7 @@
 }
 
 .search {
+    flex: 1;
     margin-top: 10px;
     margin-left: 75px;
 }
@@ -50,7 +42,6 @@
 .current-weather,
 .upcoming-weather {
     flex: 1;
-    /* border: 1px black solid; */
     margin-right: 10px;
     margin-left: 10px;
     text-align: left;
@@ -116,18 +107,17 @@
     .selectors,
     .current-weather,
     .upcoming-weather {
-        margin-right: 0px;
-        margin-left: 0px;
+        margin: auto;
     }
 
-    .flex1 { 
+    .top-flex { 
         display: flex;
         justify-content: center;
         flex-direction: column;
     }
 
     .selectors {
-        margin-top: 20px;
+        margin-top: 30px;
     }
 
     .nav-button {

@@ -58,7 +58,7 @@ function Weather() {
                 const currentTemps = response.data.days[0].hours.map(hour => Math.round(hour.temp));
                 const upcomingTemps = response.data.days[7].hours.map(hour => Math.round(hour.temp));
                 const currentPrecip = response.data.days[0].hours.map(hour => hour.precipprob);
-                const upcomingPrecip = response.data.days[7].hours.map(hour => hour.precip);
+                const upcomingPrecip = response.data.days[7].hours.map(hour => hour.precipprob);
                 const currentWind = response.data.days[0].hours.map(hour => hour.windspeed);
                 const upcomingWind = response.data.days[7].hours.map(hour => hour.windspeed);
                 setCurrentWeather({
@@ -126,7 +126,7 @@ function Weather() {
         }
     }
 
-    // Handles date (by 7 days) if user looks forward or backward from current date to display correct weather information
+    // Handles date (offsets by 7 days) if user looks forward or backward by week to display correct weather information
     const handleWeatherChange = (offset) => {
         const newOffset = weatherOffset + offset;
         const maxOffset = 30;
@@ -138,7 +138,7 @@ function Weather() {
     return (
         <div className="main">
             <div className="box">
-                <div className="flex1">
+                <div className="top-flex">
                     <div className="search">
                         <img src={locationMarkerImage} className="location-marker" alt="location marker" height="25" width="25" ></img>
                         <TextField id="standard-basic" variant="standard" value={location}
@@ -181,15 +181,15 @@ function Weather() {
                     </div>
                 </div>
                 <hr></hr>
-                <div className="flex">
+                <div className="bottom-flex">
                     <input type="image" src={leftButton} onClick={() => handleWeatherChange(-7)} className="nav-button" />
                     <div className="weather">
                         <div className="current-weather">
                             {currentWeather && currentWeather.date < new Date(new Date().setDate(new Date().getDate() + 7)).toISOString().slice(0, 10) && (
-                                <h2 className="current-weather-header">This {selectedDay} the {parseInt(currentWeather.date.slice(8, 10), 10)}{getOrdinalSuffix(parseInt(currentWeather.date.slice(8, 10), 10))}</h2>
+                                <h2 className="current-weather-header"> This {selectedDay} the {parseInt(currentWeather.date.slice(8, 10), 10)}{getOrdinalSuffix(parseInt(currentWeather.date.slice(8, 10), 10))}</h2>
                             )}
                             {currentWeather && currentWeather.date >= new Date(new Date().setDate(new Date().getDate() + 7)).toISOString().slice(0, 10) && (
-                                <h2 className="upcoming-weather-header">Next {selectedDay} the {parseInt(currentWeather.date.slice(8, 10), 10)}{getOrdinalSuffix(parseInt(currentWeather.date.slice(8, 10), 10))}</h2>
+                                <h2 className="upcoming-weather-header"> Next {selectedDay} the {parseInt(currentWeather.date.slice(8, 10), 10)}{getOrdinalSuffix(parseInt(currentWeather.date.slice(8, 10), 10))}</h2>
                             )}
                             {currentWeather && <WeatherInfo weather={currentWeather} />}
                             <WeatherChart
@@ -201,10 +201,10 @@ function Weather() {
                             />
 
                         </div>
-
+                            
                         <div className="upcoming-weather">
                             {upcomingWeather && upcomingWeather.date === new Date(new Date().setDate(new Date().getDate() + 7)).toISOString().slice(0, 10) && (
-                                <h2 className="upcoming-weather-header">Next {selectedDay} the {parseInt(upcomingWeather.date.slice(8, 10), 10)}{getOrdinalSuffix(parseInt(upcomingWeather.date.slice(8, 10), 10))}</h2>
+                                <h2 className="upcoming-weather-header"> Next {selectedDay} the {parseInt(upcomingWeather.date.slice(8, 10), 10)}{getOrdinalSuffix(parseInt(upcomingWeather.date.slice(8, 10), 10))}</h2>
                             )}
                             {upcomingWeather && upcomingWeather.date !== new Date(new Date().setDate(new Date().getDate() + 7)).toISOString().slice(0, 10) && (
                                 <h2 className="upcoming-weather-header"> {selectedDay} the {parseInt(upcomingWeather.date.slice(8, 10), 10)}{getOrdinalSuffix(parseInt(upcomingWeather.date.slice(8, 10), 10))}</h2>

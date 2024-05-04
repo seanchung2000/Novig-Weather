@@ -65,6 +65,7 @@ function WeatherChart({ id, temperatures, timeOfDay, precipProbs, windSpeed }) {
                         y: {
                             suggestedMin: 0,
                             suggestedMax: 100,
+                            type: 'linear'
                         },
                         x: {
                             title: {

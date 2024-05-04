@@ -1,4 +1,5 @@
 import '../styles/Styles.css';
+import React from 'react';
 
 import sunnyImage from '../assets/sunny.png';
 import cloudyImage from '../assets/cloudy.png';

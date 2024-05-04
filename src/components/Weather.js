@@ -138,7 +138,7 @@ function Weather() {
     return (
         <div className="main">
             <div className="box">
-                <div className="flex">
+                <div className="flex1">
                     <div className="search">
                         <img src={locationMarkerImage} className="location-marker" alt="location marker" height="25" width="25" ></img>
                         <TextField id="standard-basic" variant="standard" value={location}

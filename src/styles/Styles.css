@@ -1,5 +1,12 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../assets/Roboto-Regular.ttf') format('truetype');
+}
+
+/* Weather.js styling */
+
 .main {
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -13,69 +20,22 @@
     max-height: 90%;
 }
 
-.bottom-flex, .top-flex  {
+.top-flex,
+.bottom-flex {
     display: flex;
     margin: 30px 20px 30px 20px;
-}
-
-.weather {
-    display: flex;
-}
-
-.selectors {
-    margin-right: 0px;
-    flex: 1;
-    flex-direction:row;
 }
 
 .search {
     flex: 1;
     margin-top: 10px;
-    margin-left: 75px;
+    margin-left: 120px;
 }
 
-.location-marker {
-    margin-top: 5px;
-    margin-right: 10px;
-}
-
-.current-weather,
-.upcoming-weather {
+.selectors {
+    margin-right: 0px;
     flex: 1;
-    margin-right: 10px;
-    margin-left: 10px;
-    text-align: left;
-}
-
-.text-image-inline {
-    width: 100%;
-}
-
-.inline-image {
-    display: inline-block;
-}
-
-.inline-text {
-    display: inline-block;
-    margin-left: 12px;
-}
-
-.weather-container {
-    display: flex;
-}
-
-.weather-icon,
-.weather-text {
-    flex: 1;
-}
-
-.weather-icon {
-    margin-left: 10px;
-}
-
-.clock {
-    margin-top: 15px;
-    margin-right: 10px;
+    flex-direction: row;
 }
 
 .current-weather-header,
@@ -85,6 +45,28 @@
 
 .current-weather-header {
     color: rgb(207, 110, 113)
+}
+
+.location-marker-image {
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.clock-image {
+    margin-top: 15px;
+    margin-right: 10px;
+}
+
+.weather {
+    display: flex;
+}
+
+.current-weather,
+.upcoming-weather {
+    flex: 1;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: left;
 }
 
 .nav-button {
@@ -97,27 +79,50 @@
     height: 50px;
 }
 
+
+/* WeatherInfo.js styling */
+
+.weather-container {
+    display: flex;
+}
+
+.weather-icon {
+    margin-left: 10px;
+}
+
+.weather-icon,
+.weather-text {
+    flex: 1;
+}
+
+.daily-conditions {
+    font-size: 20px;
+}
+
+.inline-image {
+    display: inline-block;
+}
+
+.inline-text {
+    display: inline-block;
+    margin-left: 12px;
+    margin-top: 5px;
+}
+
+
+
 @media screen and (max-width: 1080px) {
     .weather {
-        margin-top: 20px;
         flex-direction: column;
     }
 
-    .search,
-    .selectors,
-    .current-weather,
-    .upcoming-weather {
-        margin: auto;
-    }
-
-    .top-flex { 
+    .top-flex {
         display: flex;
-        justify-content: center;
         flex-direction: column;
     }
 
-    .selectors {
-        margin-top: 30px;
+    .bottom-flex {
+        border: 1px solid black;
     }
 
     .nav-button {
@@ -128,6 +133,17 @@
 
     .upcoming-weather {
         margin-top: 20px;
-        margin-bottom: 100px;
+        margin-bottom: 75px;
+    }
+
+    .search,
+    .selectors,
+    .current-weather,
+    .upcoming-weather {
+        margin: auto;
+    }
+
+    .selectors {
+        margin-top: 30px;
     }
 }

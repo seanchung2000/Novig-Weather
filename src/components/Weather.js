@@ -140,14 +140,14 @@ function Weather() {
             <div className="box">
                 <div className="top-flex">
                     <div className="search">
-                        <img src={locationMarkerImage} className="location-marker" alt="location marker" height="25" width="25" ></img>
+                        <img src={locationMarkerImage} className="location-marker-image" alt="location marker" height="25" width="25" ></img>
                         <TextField id="standard-basic" variant="standard" value={location}
                             onChange={(e) => setLocation(e.target.value)}
                             onKeyPress={handleKeyPress}
                             placeholder="Enter location" />
                     </div>
                     <div className="selectors">
-                        <img src={clockImage} className="clock" alt="clock" height="25" width="25"></img>
+                        <img src={clockImage} className="clock-image" alt="clock" height="25" width="25"></img>
 
                         <FormControl halfWidth>
                             <InputLabel id="demo-simple-select-label">Day</InputLabel>

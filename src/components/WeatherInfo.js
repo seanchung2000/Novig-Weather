@@ -9,8 +9,8 @@ import windyImage from '../assets/windy.png';
 // Child component for processing daily weather information and sending it back to parent component (Weather)
 function WeatherInfo({ weather }) {
   return (
-    <div class="weather-container">
-      <div class="weather-icon">
+    <div className="weather-container">
+      <div className="weather-icon">
         {weather.conditions && (
           <p>
             {(() => {
@@ -28,15 +28,17 @@ function WeatherInfo({ weather }) {
           </p>
         )}
       </div>
-      <div class="weather-text">
-        <p> {weather.conditions + " " + Math.round(weather.temperature) + '\u00B0F'} </p>
-        <div class="text-image-inline">
-          <img src={windyImage} alt="wind" height="25" width="25" class="inline-image"></img>
-          <p class="inline-text"> {'wind ' + weather.wind + 'mph'} </p>
+      <div className="weather-text">
+        {weather.conditions && (
+          <h4 className="daily-conditions"> {weather.conditions.split(',')[0].trim() + " " + Math.round(weather.temperature) + '\u00B0F'} </h4>
+        )}
+        <div className="text-image-inline">
+          <img src={windyImage} alt="wind" height="25" width="25" className="inline-image"></img>
+          <p className="inline-text"> {'wind ' + weather.wind + 'mph'} </p>
         </div>
-        <div class="text-image-inline">
-          <img src={rainyImage} alt="rain" height="25" width="25" class="inline-image"></img>
-          <p class="inline-text"> {Math.round(weather.rain) + "% chance rain"} </p>
+        <div className="text-image-inline">
+          <img src={rainyImage} alt="rain" height="25" width="25" className="inline-image"></img>
+          <p className="inline-text"> {Math.round(weather.rain) + "% chance rain"} </p>
         </div>
       </div>
     </div>

@@ -1,7 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Chart, registerables } from 'chart.js';
-// Chart.register(...registerables);
-
+import Chart from 'chart.js/auto';
 
 // Child component for building weather chart within timeOfDay period and sending it up to parent component (Weather)
 function WeatherChart({ id, temperatures, timeOfDay, precipProbs, windSpeed }) {
@@ -66,7 +64,6 @@ function WeatherChart({ id, temperatures, timeOfDay, precipProbs, windSpeed }) {
                         y: {
                             suggestedMin: 0,
                             suggestedMax: 100,
-                            type: 'linear'
                         },
                         x: {
                             title: {

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Chart, registerables } from 'chart.js';
-Chart.register(...registerables);
+// Chart.register(...registerables);
 
 
 // Child component for building weather chart within timeOfDay period and sending it up to parent component (Weather)

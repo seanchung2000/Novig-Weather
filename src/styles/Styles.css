@@ -93,13 +93,11 @@
 .weather-icon,
 .weather-text {
     flex: 1;
-    border: 1px black solid;
 }
 
 .daily-conditions {
     font-size: 20px;
     min-height: 50px;
-    border: 1px black solid;
 }
 
 .inline-image {
